@@ -2,31 +2,36 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'me.tatarka.retrolambda'
 android {
-    compileSdkVersion rootProject.ext.android.compileSdkVersion
-    buildToolsVersion rootProject.ext.android.buildToolsVersion
+    def app = rootProject.ext.android
+    compileSdkVersion app.compileSdkVersion
+    buildToolsVersion app.buildToolsVersion
     defaultConfig {
-        applicationId rootProject.ext.android.applicationId
-        minSdkVersion rootProject.ext.android.minSdkVersion
-        targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionCode rootProject.ext.android.versionCode
-        versionName rootProject.ext.android.versionName
+        applicationId app.applicationId
+        minSdkVersion app.minSdkVersion
+        targetSdkVersion app.targetSdkVersion
+        versionCode app.versionCode
+        versionName app.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            buildConfigField("boolean","APP_DEBUG","true")
+        }
         release {
+            buildConfigField("boolean","APP_DEBUG","false")
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
-
+def den = rootProject.ext.dependencies
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile(rootProject.ext.dependencies["espresso"], {
+    androidTestCompile(den["espresso"], {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile rootProject.ext.dependencies["design"]
-    testCompile rootProject.ext.dependencies["junit"]
-    compile rootProject.ext.dependencies["butterknife"]
-    apt rootProject.ext.dependencies["butterknife-compiler"]
+    compile den["design"]
+    testCompile den["junit"]
+    compile den["butterknife"]
+    apt den["butterknife-compiler"]
 }

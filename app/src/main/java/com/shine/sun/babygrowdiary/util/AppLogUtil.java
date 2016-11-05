@@ -1,7 +1,8 @@
 package com.shine.sun.babygrowdiary.util;
 
-import android.support.compat.BuildConfig;
 import android.util.Log;
+
+import com.shine.sun.babygrowdiary.BuildConfig;
 
 /**
  * Created by Administrator on 2016/5/7 0007.
@@ -11,7 +12,7 @@ public class AppLogUtil {
     private static boolean Debug = true;
 
     public static void log(String content) {
-        if (Debug && BuildConfig.DEBUG) {
+        if (Debug && BuildConfig.APP_DEBUG) {
             Log.d(TAG, content);
         }
     }
