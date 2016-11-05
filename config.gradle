@@ -1,0 +1,19 @@
+ext {
+    android = [compileSdkVersion: 23,
+               buildToolsVersion: "23.0.3",
+               applicationId    : "com.shine.sun.babygrowdiary",
+               minSdkVersion    : 14,
+               targetSdkVersion : 23,
+               compileSdkVersion: 25,
+               buildToolsVersion: "25.0.0",
+               versionCode      : 1,
+               versionName      : "1.0.0"]
+
+    dependencies = [
+            "design"              : "com.android.support:design:25.0.0",
+            "butterknife"         : 'com.jakewharton:butterknife:8.4.0',
+            "espresso"            : "com.android.support.test.espresso:espresso-core:2.2.2",
+            "junit"               : "junit:junit:4.12",
+            "butterknife-compiler": "com.jakewharton:butterknife-compiler:8.4.0",
+    ]
+}
