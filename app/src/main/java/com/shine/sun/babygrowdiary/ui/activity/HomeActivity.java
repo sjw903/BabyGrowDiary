@@ -19,7 +19,7 @@ import butterknife.BindView;
 
 import static com.shine.sun.babygrowdiary.R.id.fab;
 
-public class MainActivity extends BaseActivity
+public class HomeActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
