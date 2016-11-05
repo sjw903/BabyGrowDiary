@@ -15,16 +15,21 @@ import android.view.View;
 import com.shine.sun.babygrowdiary.R;
 import com.shine.sun.babygrowdiary.base.BaseActivity;
 
+import butterknife.BindView;
+
+import static com.shine.sun.babygrowdiary.R.id.fab;
+
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
+    @BindView(fab)
+    FloatingActionButton mFloatingActionButton;
 
     @Override
     protected void initView() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        setSupportActionBar(mToolbar);
+        mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -34,7 +39,7 @@ public class MainActivity extends BaseActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
