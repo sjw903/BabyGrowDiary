@@ -16,7 +16,7 @@
     </style>
 
     <style name="SplashTheme" parent="@style/AppTheme.NoActionBar">
-        <item name="android:background">@drawable/ic_splash</item>
+        <item name="android:background">@drawable/splash</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>

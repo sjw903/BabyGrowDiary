@@ -15,10 +15,10 @@ android {
     }
     buildTypes {
         debug {
-            buildConfigField("boolean","APP_DEBUG","true")
+            buildConfigField("boolean", "APP_DEBUG", "true")
         }
         release {
-            buildConfigField("boolean","APP_DEBUG","false")
+            buildConfigField("boolean", "APP_DEBUG", "false")
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -34,4 +34,6 @@ dependencies {
     testCompile den["junit"]
     compile den["butterknife"]
     apt den["butterknife-compiler"]
+    den["rxjava"]
+    den["rxandroid"]
 }

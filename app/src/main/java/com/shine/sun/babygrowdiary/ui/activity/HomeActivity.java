@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.shine.sun.babygrowdiary.R;
 import com.shine.sun.babygrowdiary.base.BaseActivity;
@@ -25,10 +26,13 @@ public class HomeActivity extends BaseActivity
     Toolbar mToolbar;
     @BindView(fab)
     FloatingActionButton mFloatingActionButton;
+    long mExitTime;
+    private static final long INTERVAL_TIME = 2000L;
 
     @Override
     protected void initView() {
         setSupportActionBar(mToolbar);
+
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,7 +73,13 @@ public class HomeActivity extends BaseActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            long currentTime = System.currentTimeMillis();
+            if (currentTime - mExitTime < INTERVAL_TIME) {
+                super.onBackPressed();
+            } else {
+                mExitTime = currentTime;
+                Toast.makeText(this, getResources().getString(R.string.home_quit_tip), Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
