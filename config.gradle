@@ -11,11 +11,11 @@ ext {
 
     dependencies = [
             "design"              : "com.android.support:design:25.0.0",
-            "butterknife"         : 'com.jakewharton:butterknife:8.4.0',
+            "butterknife"         : "com.jakewharton:butterknife:8.4.0",
             "espresso"            : "com.android.support.test.espresso:espresso-core:2.2.2",
             "junit"               : "junit:junit:4.12",
             "butterknife-compiler": "com.jakewharton:butterknife-compiler:8.4.0",
-            "rxjava"              : "io.reactivex:rxjava:1.0.10",
-            "rxandroid"           : "io.reactivex:rxandroid:1.0.0"
+            "rxjava"              : "io.reactivex:rxjava:1.2.2",
+            "rxandroid"           : "io.reactivex:rxandroid:1.2.1"
     ]
 }

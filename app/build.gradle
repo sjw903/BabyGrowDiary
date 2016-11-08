@@ -22,18 +22,26 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        compileOptions{
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+        retrolambda {//指定将源码编译的级别，使用下列代码，会将代码编译到兼容1.6的字节码格式
+            javaVersion JavaVersion.VERSION_1_6
+        }
     }
 }
-def den = rootProject.ext.dependencies
 dependencies {
+    def den = rootProject.ext.dependencies
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile(den["espresso"], {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile den["rxandroid"]
     compile den["design"]
     testCompile den["junit"]
     compile den["butterknife"]
     apt den["butterknife-compiler"]
-    den["rxjava"]
-    den["rxandroid"]
+    compile den["rxjava"]
 }

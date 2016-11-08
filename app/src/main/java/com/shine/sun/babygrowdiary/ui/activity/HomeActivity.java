@@ -10,13 +10,15 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.shine.sun.babygrowdiary.R;
 import com.shine.sun.babygrowdiary.base.BaseActivity;
 
 import butterknife.BindView;
+import rx.Observable;
+import rx.Subscriber;
 
 import static com.shine.sun.babygrowdiary.R.id.fab;
 
@@ -26,21 +28,21 @@ public class HomeActivity extends BaseActivity
     Toolbar mToolbar;
     @BindView(fab)
     FloatingActionButton mFloatingActionButton;
-    long mExitTime;
+
+    @BindView(R.id.tv_hello)
+    TextView mTextView;
+
+    Observable<String> mObservable;
+    Subscriber<String> mSubscriber;
+    private long mExitTime;
     private static final long INTERVAL_TIME = 2000L;
 
     @Override
     protected void initView() {
         setSupportActionBar(mToolbar);
 
-        mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
+        mFloatingActionButton.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show());
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -53,7 +55,7 @@ public class HomeActivity extends BaseActivity
 
     @Override
     protected void initData() {
-
+        rxInit();
     }
 
     @Override
@@ -65,6 +67,36 @@ public class HomeActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+    }
+
+    private void rxInit() {
+        mObservable = Observable.create(new Observable.OnSubscribe<String>() {
+            @Override
+            public void call(Subscriber<? super String> subscriber) {
+                subscriber.onNext(getSelfContent());
+            }
+        });
+        mSubscriber = new Subscriber<String>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(String s) {
+                mTextView.setText(s);
+            }
+        };
+        mObservable.subscribe(mSubscriber);
+    }
+
+    private String getSelfContent() {
+        return "Hello My son!";
     }
 
     @Override
