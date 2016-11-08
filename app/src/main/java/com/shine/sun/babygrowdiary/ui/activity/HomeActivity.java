@@ -19,6 +19,7 @@ import com.shine.sun.babygrowdiary.base.BaseActivity;
 import butterknife.BindView;
 import rx.Observable;
 import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
 
 import static com.shine.sun.babygrowdiary.R.id.fab;
 
@@ -70,12 +71,13 @@ public class HomeActivity extends BaseActivity
     }
 
     private void rxInit() {
-        mObservable = Observable.create(new Observable.OnSubscribe<String>() {
-            @Override
-            public void call(Subscriber<? super String> subscriber) {
-                subscriber.onNext(getSelfContent());
-            }
-        });
+//        mObservable = Observable.create(new Observable.OnSubscribe<String>() {
+//            @Override
+//            public void call(Subscriber<? super String> subscriber) {
+//                subscriber.onNext(getSelfContent());
+//            }
+//        });
+
         mSubscriber = new Subscriber<String>() {
             @Override
             public void onCompleted() {
@@ -92,7 +94,8 @@ public class HomeActivity extends BaseActivity
                 mTextView.setText(s);
             }
         };
-        mObservable.subscribe(mSubscriber);
+//        mObservable.subscribe(mSubscriber);
+        Observable.just(getSelfContent()).observeOn(AndroidSchedulers.mainThread()).subscribe(mSubscriber);
     }
 
     private String getSelfContent() {
