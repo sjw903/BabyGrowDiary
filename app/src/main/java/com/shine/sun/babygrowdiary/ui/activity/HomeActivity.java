@@ -17,6 +17,7 @@ import com.shine.sun.babygrowdiary.R;
 import com.shine.sun.babygrowdiary.base.BaseActivity;
 
 import butterknife.BindView;
+import hugo.weaving.DebugLog;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -97,7 +98,7 @@ public class HomeActivity extends BaseActivity
 //        mObservable.subscribe(mSubscriber);
         Observable.just(getSelfContent()).observeOn(AndroidSchedulers.mainThread()).subscribe(mSubscriber);
     }
-
+    @DebugLog
     private String getSelfContent() {
         return "Hello My son!";
     }

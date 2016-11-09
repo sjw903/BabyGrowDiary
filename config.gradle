@@ -16,6 +16,7 @@ ext {
             "junit"               : "junit:junit:4.12",
             "butterknife-compiler": "com.jakewharton:butterknife-compiler:8.4.0",
             "rxjava"              : "io.reactivex:rxjava:1.2.2",
-            "rxandroid"           : "io.reactivex:rxandroid:1.2.1"
+            "rxandroid"           : "io.reactivex:rxandroid:1.2.1",
+            "timber"              : "com.jakewharton.timber:timber:2.7.1"
     ]
 }

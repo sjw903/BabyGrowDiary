@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.jakewharton.hugo'
 android {
     def app = rootProject.ext.android
     compileSdkVersion app.compileSdkVersion
@@ -44,4 +45,5 @@ dependencies {
     compile den["butterknife"]
     apt den["butterknife-compiler"]
     compile den["rxjava"]
+    compile den["timber"]
 }
