@@ -46,4 +46,5 @@ dependencies {
     apt den["butterknife-compiler"]
     compile den["rxjava"]
     compile den["timber"]
+    compile den["pagerslidingtabstrip"]
 }

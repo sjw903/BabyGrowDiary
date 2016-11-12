@@ -6,4 +6,7 @@
 
     <string name="action_settings">Settings</string>
     <string name="home_quit_tip">Press again will quit!</string>
+    <string name="tab_title_home">Home</string>
+    <string name="tab_title_history">History</string>
+    <string name="tab_title_grow_up">growUp</string>
 </resources>

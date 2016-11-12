@@ -2,4 +2,7 @@
 <resources>
     <string name="app_name">宝宝日记</string>
     <string name="home_quit_tip">再按一次将要退出程序!</string>
+    <string name="tab_title_home">主页</string>
+    <string name="tab_title_history">历史</string>
+    <string name="tab_title_grow_up">成长</string>
 </resources>

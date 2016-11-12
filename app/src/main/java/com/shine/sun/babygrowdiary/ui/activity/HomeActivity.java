@@ -1,20 +1,28 @@
 package com.shine.sun.babygrowdiary.ui.activity;
 
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.PagerTabStrip;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.shine.sun.babygrowdiary.R;
+import com.shine.sun.babygrowdiary.adapter.HomePagerAdapter;
 import com.shine.sun.babygrowdiary.base.BaseActivity;
+import com.shine.sun.babygrowdiary.base.BaseFragment;
+import com.shine.sun.babygrowdiary.ui.fragment.FragmentContent;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import hugo.weaving.DebugLog;
@@ -22,41 +30,59 @@ import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 
-import static com.shine.sun.babygrowdiary.R.id.fab;
-
 public class HomeActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
-    @BindView(fab)
-    FloatingActionButton mFloatingActionButton;
 
-    @BindView(R.id.tv_hello)
-    TextView mTextView;
+    @BindView(R.id.view_pager)
+    ViewPager mViewPager;
 
-    Observable<String> mObservable;
+    @BindView(R.id.pager_tab)
+    PagerTabStrip mPagerTabStrip;
     Subscriber<String> mSubscriber;
+
     private long mExitTime;
     private static final long INTERVAL_TIME = 2000L;
+    //modify system language, fragment content can't change content
+    private static String[] TITLES;
+    private static final int[] IMG_RES = {R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher};
 
     @Override
     protected void initView() {
         setSupportActionBar(mToolbar);
-
-        mFloatingActionButton.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show());
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        List<BaseFragment> fragmentList = new ArrayList<>();
+        for (String title : TITLES) {
+            Bundle bundle = new Bundle();
+            bundle.putString("title", title);
+            fragmentList.add(FragmentContent.getInstance(bundle));
+        }
+        HomePagerAdapter adapter = new HomePagerAdapter(getSupportFragmentManager(), TITLES, fragmentList);
+        mPagerTabStrip.setTextColor(Color.RED);
+        mPagerTabStrip.setBackgroundColor(Color.GREEN);
+        mPagerTabStrip.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
+        mPagerTabStrip.setFitsSystemWindows(true);
+        mViewPager.setAdapter(adapter);
+        mViewPager.setOffscreenPageLimit(3);
+        mViewPager.setCurrentItem(1);
+        setTabsValue();
+    }
+
+    private void setTabsValue() {
+
     }
 
     @Override
     protected void initData() {
+        Resources res = getResources();
+        TITLES = new String[]{String.format(res.getString(R.string.tab_title_home)), String.format(res.getString(R.string.tab_title_history)), String.format(res.getString(R.string.tab_title_grow_up))};
         rxInit();
     }
 
@@ -92,12 +118,13 @@ public class HomeActivity extends BaseActivity
 
             @Override
             public void onNext(String s) {
-                mTextView.setText(s);
+
             }
         };
 //        mObservable.subscribe(mSubscriber);
         Observable.just(getSelfContent()).observeOn(AndroidSchedulers.mainThread()).subscribe(mSubscriber);
     }
+
     @DebugLog
     private String getSelfContent() {
         return "Hello My son!";
