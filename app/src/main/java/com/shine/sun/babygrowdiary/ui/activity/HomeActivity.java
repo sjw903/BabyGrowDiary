@@ -66,7 +66,6 @@ public class HomeActivity extends BaseActivity
         }
         HomePagerAdapter adapter = new HomePagerAdapter(getSupportFragmentManager(), TITLES, fragmentList);
         mPagerTabStrip.setTextColor(Color.RED);
-        mPagerTabStrip.setBackgroundColor(Color.GREEN);
         mPagerTabStrip.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
         mPagerTabStrip.setFitsSystemWindows(true);
         mViewPager.setAdapter(adapter);

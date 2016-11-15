@@ -47,4 +47,5 @@ dependencies {
     compile den["rxjava"]
     compile den["timber"]
     compile den["pagerslidingtabstrip"]
+    compile den["eventbus"]
 }
