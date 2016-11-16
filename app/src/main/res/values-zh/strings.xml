@@ -5,4 +5,5 @@
     <string name="tab_title_home">主页</string>
     <string name="tab_title_history">历史</string>
     <string name="tab_title_grow_up">成长</string>
+    <string name="text_guide_skip">跳过</string>
 </resources>

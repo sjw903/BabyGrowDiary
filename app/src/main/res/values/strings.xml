@@ -9,4 +9,5 @@
     <string name="tab_title_home">Home</string>
     <string name="tab_title_history">History</string>
     <string name="tab_title_grow_up">growUp</string>
+    <string name="text_guide_skip">Skip</string>
 </resources>
