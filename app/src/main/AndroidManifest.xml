@@ -32,12 +32,14 @@
         <!-- add umeng share future -->
         <activity
             android:name=".ui.activity.GuideActivity"
+            android:noHistory="true"
             android:screenOrientation="portrait"
             android:theme="@style/GuideTheme"/>
         <activity
             android:name=".ui.activity.LoginActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
             >
         </activity>
     </application>

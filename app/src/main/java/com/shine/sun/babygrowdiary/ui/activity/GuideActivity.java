@@ -2,6 +2,7 @@ package com.shine.sun.babygrowdiary.ui.activity;
 
 import android.content.Intent;
 import android.support.v4.view.ViewPager;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -18,8 +19,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-import static android.support.v4.view.ViewPager.SCROLL_STATE_IDLE;
-
 /**
  * Created by Steven on 2016/11/15 0015.
  */
@@ -30,6 +29,7 @@ public class GuideActivity extends BaseActivity implements View.OnClickListener,
     @BindView(R.id.view_pager_guide)
     ViewPager mViewPager;
     private List<View> mViewList;
+
     @Override
     protected void initView() {
         initDot();
@@ -85,7 +85,7 @@ public class GuideActivity extends BaseActivity implements View.OnClickListener,
     }
 
     private void launchLoginActivity() {
-        startActivity(new Intent(GuideActivity.this, LoginActivity.class));
+        startActivity(new Intent(GuideActivity.this, HomeActivity.class));
     }
 
     private void setCurrentDot(int position) {
@@ -114,14 +114,17 @@ public class GuideActivity extends BaseActivity implements View.OnClickListener,
 
     @Override
     public void onPageSelected(int position) {
+        AppLogUtil.log("onPageSelected position " + position);
         setCurrentDot(position);
     }
 
     @Override
     public void onPageScrollStateChanged(int state) {
         AppLogUtil.log("onPageScrollStateChanged state " + state);
-        if (state == SCROLL_STATE_IDLE && mCurrentIndex == mViewList.size() - 1) {
-//            launchLoginActivity();
-        }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        return false;
     }
 }

@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 
-import com.shine.sun.babygrowdiary.inter.AppConstant;
+import com.shine.sun.babygrowdiary.interfaces.AppConstant;
 
 /**
  * Created by Steven on 2016/11/5 0005.
@@ -24,9 +24,8 @@ public class SplashActivity extends AppCompatActivity implements AppConstant {
             PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putBoolean(KEY_GUIDE, false).apply();
             intent.setClass(SplashActivity.this, GuideActivity.class);
         } else {
-            intent.setClass(SplashActivity.this, LoginActivity.class);
+            intent.setClass(SplashActivity.this, HomeActivity.class);
         }
-        intent.setClass(SplashActivity.this, GuideActivity.class);
         new Handler().postDelayed(() ->
                         SplashActivity.this.startActivity(intent)
                 , 1000L);
