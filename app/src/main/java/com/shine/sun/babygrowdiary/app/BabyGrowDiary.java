@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.shine.sun.babygrowdiary.BuildConfig;
 import com.shine.sun.babygrowdiary.util.AppException;
+import com.shine.sun.babygrowdiary.util.AppLogUtil;
+import com.shine.sun.babygrowdiary.util.AppPackage;
 
 import timber.log.Timber;
 
@@ -24,8 +26,15 @@ public class BabyGrowDiary extends Application {
          * AppException init to catch exception
          */
         AppException.getInstance().init(getApplicationContext());
-        if (BuildConfig.APP_DEBUG){
+        if (BuildConfig.APP_DEBUG) {
             Timber.plant(new Timber.DebugTree());
         }
+        AppPackage.getInstance().init(getApplicationContext());
+        AppPackage appPackage = AppPackage.getInstance();
+        String packageName = appPackage.getPackageName();
+        String versionCode = appPackage.getVersionCode();
+        String versionName = appPackage.getVersionName();
+        String packName = appPackage.getPackName();
+        AppLogUtil.log(" packageName = " + packageName + " versionCode = " + versionCode + " versionName = " + versionName + " packName = " + packName);
     }
 }

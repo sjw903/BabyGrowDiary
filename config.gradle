@@ -1,3 +1,5 @@
+def cmd = 'git rev-list HEAD --count'
+def gitVersion = cmd.execute().text.trim().toInteger()
 ext {
     android = [compileSdkVersion: 23,
                buildToolsVersion: "23.0.3",
@@ -6,7 +8,7 @@ ext {
                targetSdkVersion : 23,
                compileSdkVersion: 25,
                buildToolsVersion: "25.0.0",
-               versionCode      : 1,
+               versionCode      : gitVersion,
                versionName      : "1.0.0"]
 
     dependencies = [

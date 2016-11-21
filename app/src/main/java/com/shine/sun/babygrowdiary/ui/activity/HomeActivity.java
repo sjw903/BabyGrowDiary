@@ -1,18 +1,18 @@
 package com.shine.sun.babygrowdiary.ui.activity;
 
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.shine.sun.babygrowdiary.R;
@@ -31,22 +31,23 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 
 public class HomeActivity extends BaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, ViewPager.OnPageChangeListener, View.OnClickListener {
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
 
     @BindView(R.id.view_pager)
     ViewPager mViewPager;
-
-    @BindView(R.id.pager_tab)
-    PagerTabStrip mPagerTabStrip;
+    @BindView(R.id.ll_tabs_layout)
+    LinearLayout mTabLayout;
+    private TextView[] mTabsTextView;
+    //    @BindView(R.id.pager_tab)
+//    PagerTabStrip mPagerTabStrip;
     Subscriber<String> mSubscriber;
 
     private long mExitTime;
     private static final long INTERVAL_TIME = 2000L;
     //modify system language, fragment content can't change content
     private static String[] TITLES;
-    private static final int[] IMG_RES = {R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher};
 
     @Override
     protected void initView() {
@@ -64,13 +65,15 @@ public class HomeActivity extends BaseActivity
             bundle.putString("title", title);
             fragmentList.add(FragmentContent.getInstance(bundle));
         }
+        initTabsView();
         HomePagerAdapter adapter = new HomePagerAdapter(getSupportFragmentManager(), TITLES, fragmentList);
-        mPagerTabStrip.setTextColor(Color.RED);
-        mPagerTabStrip.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
-        mPagerTabStrip.setFitsSystemWindows(true);
+//        mPagerTabStrip.setTextColor(Color.RED);
+//        mPagerTabStrip.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
+//        mPagerTabStrip.setFitsSystemWindows(true);
         mViewPager.setAdapter(adapter);
         mViewPager.setOffscreenPageLimit(3);
         mViewPager.setCurrentItem(1);
+        selectTab(1);
         setTabsValue();
     }
 
@@ -78,10 +81,29 @@ public class HomeActivity extends BaseActivity
 
     }
 
+    private void initTabsView() {
+        int size = mTabLayout.getChildCount();
+        mTabsTextView = new TextView[size];
+        for (int i = 0; i < size; i++) {
+            mTabsTextView[i] = (TextView) mTabLayout.getChildAt(i);
+            mTabsTextView[i].setTag(i);
+            mTabsTextView[i].setOnClickListener(this);
+            mTabsTextView[i].setFocusable(true);
+        }
+    }
+
+    private void selectTab(int position) {
+        int old = mViewPager.getCurrentItem();
+        if (old != position) {
+            mTabsTextView[old].setSelected(false);
+            mTabsTextView[position].setSelected(true);
+        }
+    }
+
     @Override
     protected void initData() {
         Resources res = getResources();
-        TITLES = new String[]{String.format(res.getString(R.string.tab_title_home)), String.format(res.getString(R.string.tab_title_history)), String.format(res.getString(R.string.tab_title_grow_up))};
+        TITLES = new String[]{String.format(res.getString(R.string.tab_title_home)), String.format(res.getString(R.string.tab_title_grow_up)), String.format(res.getString(R.string.tab_title_history))};
         rxInit();
     }
 
@@ -190,5 +212,32 @@ public class HomeActivity extends BaseActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        selectTab(position);
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
+
+    private void selectPager(int position) {
+        mViewPager.setCurrentItem(position);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view instanceof TextView) {
+            int position = (int) view.getTag();
+            selectPager(position);
+        }
     }
 }

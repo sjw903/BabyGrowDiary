@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.shine.sun.babygrowdiary.ui.activity.HomeActivity">
+    android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -17,17 +15,70 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <!--<android.support.v4.view.ViewPager-->
+    <!--android:id="@+id/view_pager"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <!--<android.support.v4.view.PagerTabStrip-->
+    <!--android:id="@+id/pager_tab"-->
+    <!--android:background="@color/color_tabs_bg"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="bottom"/>-->
+    <!--</android.support.v4.view.ViewPager>-->
+
+
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
-        <android.support.v4.view.PagerTabStrip
-            android:id="@+id/pager_tab"
-            android:background="@color/color_tabs_bg"
-            android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/ll_tabs_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@android:color/holo_blue_bright"
+        android:orientation="horizontal"
+        android:padding="2dp">
+
+        <TextView
+            android:id="@+id/tv_tabs_1"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"/>
-    </android.support.v4.view.ViewPager>
+            android:layout_weight="1"
+            android:drawablePadding="6dp"
+            android:drawableTop="@drawable/tabs_home_page"
+            android:gravity="center"
+            android:text="@string/tab_title_home"
+            android:textAllCaps="false"
+            android:textColor="@color/tabs_text_color"/>
 
-</android.support.design.widget.CoordinatorLayout>
+        <TextView
+            android:id="@+id/tv_tabs_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="6dp"
+            android:drawableTop="@drawable/tabs_grow_up"
+            android:gravity="center"
+            android:text="@string/tab_title_grow_up"
+            android:textAllCaps="false"
+            android:textColor="@color/tabs_text_color"/>
+
+        <TextView
+            android:id="@+id/tv_tabs_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="6dp"
+            android:drawableTop="@drawable/tabs_history"
+            android:gravity="center"
+            android:text="@string/tab_title_history"
+            android:textAllCaps="false"
+            android:textColor="@color/tabs_text_color"/>
+    </LinearLayout>
+
+</LinearLayout>
