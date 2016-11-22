@@ -72,10 +72,11 @@ public class HomeActivity extends BaseActivity
 //        mPagerTabStrip.setFitsSystemWindows(true);
         mViewPager.setAdapter(adapter);
         mViewPager.setOffscreenPageLimit(adapter.getCount());
-        mCurrentIndex = 1;
+        mCurrentIndex = 0;
         mViewPager.setCurrentItem(mCurrentIndex);
         mViewPager.addOnPageChangeListener(this);
         setTabsValue();
+        initSelectTab();
     }
 
     private void setTabsValue() {
@@ -90,6 +91,10 @@ public class HomeActivity extends BaseActivity
             mTabsTextView[i].setTag(i);
             mTabsTextView[i].setOnClickListener(this);
         }
+    }
+
+    private void initSelectTab() {
+        mTabsTextView[mCurrentIndex].setSelected(true);
     }
 
     private void selectTab(int position) {
