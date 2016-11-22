@@ -43,7 +43,7 @@ public class HomeActivity extends BaseActivity
     //    @BindView(R.id.pager_tab)
 //    PagerTabStrip mPagerTabStrip;
     Subscriber<String> mSubscriber;
-
+    private int mCurrentIndex;
     private long mExitTime;
     private static final long INTERVAL_TIME = 2000L;
     //modify system language, fragment content can't change content
@@ -71,9 +71,10 @@ public class HomeActivity extends BaseActivity
 //        mPagerTabStrip.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
 //        mPagerTabStrip.setFitsSystemWindows(true);
         mViewPager.setAdapter(adapter);
-        mViewPager.setOffscreenPageLimit(3);
-        mViewPager.setCurrentItem(1);
-        selectTab(1);
+        mViewPager.setOffscreenPageLimit(adapter.getCount());
+        mCurrentIndex = 1;
+        mViewPager.setCurrentItem(mCurrentIndex);
+        mViewPager.addOnPageChangeListener(this);
         setTabsValue();
     }
 
@@ -88,16 +89,13 @@ public class HomeActivity extends BaseActivity
             mTabsTextView[i] = (TextView) mTabLayout.getChildAt(i);
             mTabsTextView[i].setTag(i);
             mTabsTextView[i].setOnClickListener(this);
-            mTabsTextView[i].setFocusable(true);
         }
     }
 
     private void selectTab(int position) {
-        int old = mViewPager.getCurrentItem();
-        if (old != position) {
-            mTabsTextView[old].setSelected(false);
-            mTabsTextView[position].setSelected(true);
-        }
+        mTabsTextView[mCurrentIndex].setSelected(false);
+        mTabsTextView[position].setSelected(true);
+        mCurrentIndex = position;
     }
 
     @Override

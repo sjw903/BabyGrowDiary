@@ -6,4 +6,5 @@
     <color name="color_tabs_bg">#AA2196F3</color>
     <color name="color_tabs_normal">#AA000000</color>
     <color name="color_tabs_pressed">#AAFF0000</color>
+    <color name="color_tabs_selected">#AA00FF00</color>
 </resources>
