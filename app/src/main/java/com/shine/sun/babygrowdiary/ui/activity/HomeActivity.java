@@ -40,13 +40,11 @@ public class HomeActivity extends BaseActivity
     @BindView(R.id.ll_tabs_layout)
     LinearLayout mTabLayout;
     private TextView[] mTabsTextView;
-    //    @BindView(R.id.pager_tab)
-//    PagerTabStrip mPagerTabStrip;
     Subscriber<String> mSubscriber;
     private int mCurrentIndex;
     private long mExitTime;
     private static final long INTERVAL_TIME = 2000L;
-    //modify system language, fragment content can't change content
+    //TODO modify system language, fragment content can't change content
     private static String[] TITLES;
 
     @Override
@@ -67,9 +65,6 @@ public class HomeActivity extends BaseActivity
         }
         initTabsView();
         HomePagerAdapter adapter = new HomePagerAdapter(getSupportFragmentManager(), TITLES, fragmentList);
-//        mPagerTabStrip.setTextColor(Color.RED);
-//        mPagerTabStrip.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
-//        mPagerTabStrip.setFitsSystemWindows(true);
         mViewPager.setAdapter(adapter);
         mViewPager.setOffscreenPageLimit(adapter.getCount());
         mCurrentIndex = 0;
