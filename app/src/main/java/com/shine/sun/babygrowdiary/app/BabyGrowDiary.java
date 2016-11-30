@@ -6,6 +6,7 @@ import com.shine.sun.babygrowdiary.BuildConfig;
 import com.shine.sun.babygrowdiary.util.AppException;
 import com.shine.sun.babygrowdiary.util.AppLogUtil;
 import com.shine.sun.babygrowdiary.util.AppPackage;
+import com.yayandroid.theactivitymanager.TheActivityManager;
 
 import timber.log.Timber;
 
@@ -29,6 +30,7 @@ public class BabyGrowDiary extends Application {
         if (BuildConfig.APP_DEBUG) {
             Timber.plant(new Timber.DebugTree());
         }
+        TheActivityManager.getInstance().configure(this);
         AppPackage.getInstance().init(getApplicationContext());
         AppPackage appPackage = AppPackage.getInstance();
         String packageName = appPackage.getPackageName();

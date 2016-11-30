@@ -3,7 +3,7 @@ def gitVersion = cmd.execute().text.trim().toInteger()
 ext {
     android = [compileSdkVersion: 23,
                buildToolsVersion: "23.0.3",
-               applicationId    : "com.shine.sun.babygrowdiary",
+               applicationId    : "com.jtpay.sdk",
                minSdkVersion    : 14,
                targetSdkVersion : 23,
                compileSdkVersion: 25,
@@ -22,5 +22,5 @@ ext {
             "timber"              : "com.jakewharton.timber:timber:2.7.1",
             "pagerslidingtabstrip": "com.astuetz:pagerslidingtabstrip:1.0.1",
             "eventbus"            : "de.greenrobot:eventbus:2.4.1",
-    ]
+            "activityManager"     : "com.yayandroid:TheActivityManager:1.0.6",    ]
 }

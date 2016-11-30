@@ -48,4 +48,5 @@ dependencies {
     compile den["timber"]
     compile den["pagerslidingtabstrip"]
     compile den["eventbus"]
+    compile den["activityManager"]
 }

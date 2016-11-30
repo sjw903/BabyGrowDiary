@@ -1,5 +1,6 @@
 package com.shine.sun.babygrowdiary.ui.activity;
 
+import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -20,6 +21,8 @@ import com.shine.sun.babygrowdiary.adapter.HomePagerAdapter;
 import com.shine.sun.babygrowdiary.base.BaseActivity;
 import com.shine.sun.babygrowdiary.base.BaseFragment;
 import com.shine.sun.babygrowdiary.ui.fragment.FragmentContent;
+import com.shine.sun.babygrowdiary.util.AppLogUtil;
+import com.yayandroid.theactivitymanager.TheActivityManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -112,8 +115,11 @@ public class HomeActivity extends BaseActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AppLogUtil.log("HomeActivity activity!!!");
         super.onCreate(savedInstanceState);
-
+        Activity activity = TheActivityManager.getInstance().getCurrentActivity();
+        String className = activity.getClass().getName();
+        AppLogUtil.log("HomeActivity className = " + className);
     }
 
     private void rxInit() {
