@@ -2,6 +2,7 @@ package com.shine.sun.babygrowdiary.app;
 
 import android.app.Application;
 
+import com.google.firebase.storage.FirebaseStorage;
 import com.shine.sun.babygrowdiary.BuildConfig;
 import com.shine.sun.babygrowdiary.util.AppException;
 import com.shine.sun.babygrowdiary.util.AppLogUtil;
@@ -30,6 +31,7 @@ public class BabyGrowDiary extends Application {
         if (BuildConfig.APP_DEBUG) {
             Timber.plant(new Timber.DebugTree());
         }
+        FirebaseStorage storage = FirebaseStorage.getInstance();
         TheActivityManager.getInstance().configure(this);
         AppPackage.getInstance().init(getApplicationContext());
         AppPackage appPackage = AppPackage.getInstance();

@@ -49,4 +49,7 @@ dependencies {
     compile den["pagerslidingtabstrip"]
     compile den["eventbus"]
     compile den["activityManager"]
+    compile den["firebase-storage"]
+    compile den["firebase-auth"]
+
 }
