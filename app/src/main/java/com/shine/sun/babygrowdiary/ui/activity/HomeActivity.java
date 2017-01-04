@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.shine.sun.babygrowdiary.R;
 import com.shine.sun.babygrowdiary.adapter.HomePagerAdapter;
 import com.shine.sun.babygrowdiary.base.BaseActivity;
@@ -49,6 +50,7 @@ public class HomeActivity extends BaseActivity
     private static final long INTERVAL_TIME = 2000L;
     //TODO modify system language, fragment content can't change content
     private static String[] TITLES;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void initView() {
@@ -106,6 +108,7 @@ public class HomeActivity extends BaseActivity
         Resources res = getResources();
         TITLES = new String[]{String.format(res.getString(R.string.tab_title_home)), String.format(res.getString(R.string.tab_title_grow_up)), String.format(res.getString(R.string.tab_title_history))};
         rxInit();
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
     }
 
     @Override
@@ -120,6 +123,20 @@ public class HomeActivity extends BaseActivity
         Activity activity = TheActivityManager.getInstance().getCurrentActivity();
         String className = activity.getClass().getName();
         AppLogUtil.log("HomeActivity className = " + className);
+    }
+
+    private void fireBaseLogTest() {
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "1");
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Test");
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "nothing");
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        fireBaseLogTest();
     }
 
     private void rxInit() {
