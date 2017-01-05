@@ -13,6 +13,7 @@ android {
         targetSdkVersion app.targetSdkVersion
         versionCode app.versionCode
         versionName app.versionName
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -33,13 +34,10 @@ android {
             javaVersion JavaVersion.VERSION_1_6
         }
     }
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-    }
 }
 dependencies {
     def den = rootProject.ext.dependencies
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile(den["espresso"], {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -53,9 +51,9 @@ dependencies {
     compile den["pagerslidingtabstrip"]
     compile den["eventbus"]
     compile den["activityManager"]
+    compile den["firebase-core"]
     compile den["firebase-storage"]
-    compile den["firebase-auth"]
-    compile den["firebase-analytics"]
+    compile den["multidex"]
 }
 repositories {
     mavenCentral()

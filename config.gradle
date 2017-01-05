@@ -24,7 +24,7 @@ ext {
             "eventbus"            : "de.greenrobot:eventbus:2.4.1",
             "activityManager"     : "com.yayandroid:TheActivityManager:1.0.6",
             "firebase-storage"    : "com.google.firebase:firebase-storage:9.6.1",
-            "firebase-auth"       : "com.google.firebase:firebase-auth:9.6.1",
-            "firebase-analytics"  : "com.google.firebase:firebase-core:10.0.1"
+            "firebase-core"  : "com.google.firebase:firebase-core:10.0.1",
+            "multidex"            : "com.android.support:multidex:1.0.0",
     ]
 }
