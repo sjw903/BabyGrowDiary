@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "1051528658439",
+    "firebase_url": "https://project-8671187314158028458.firebaseio.com",
+    "project_id": "project-8671187314158028458",
+    "storage_bucket": "project-8671187314158028458.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1051528658439:android:f77a84b6eed2adfe",
+        "android_client_info": {
+          "package_name": "com.firebase.samples.logindemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1051528658439-ssa1kgsjp90u4tgh6o3cmngbr7k41aou.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVo_E6fhZ6vEuwcOuAOr8b68_TCY4d1Fg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1051528658439:android:d902b50420a87259",
+        "android_client_info": {
+          "package_name": "com.shine.sun.babygrowdiary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1051528658439-ssa1kgsjp90u4tgh6o3cmngbr7k41aou.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVo_E6fhZ6vEuwcOuAOr8b68_TCY4d1Fg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
