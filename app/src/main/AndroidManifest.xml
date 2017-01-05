@@ -43,9 +43,17 @@
             android:name=".ui.activity.LoginActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            >
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
+
+        <service
+            android:name=".service.MyTestService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.shine.sun.aidl.myservice"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
