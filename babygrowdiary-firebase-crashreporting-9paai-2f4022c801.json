@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "babygrowdiary",
+  "private_key_id": "2f4022c801a8a3af65c5b51f0700e1af9ceebdc8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDPrDU2gSZQ058B\nscX8AhIX9opFAfrA8NO+4V2gMIZQuDAdjKPsYERgGNf0OiJnAorhblR9diyuxgRq\nYzpR1kMoE+CjtCK6HH54lq2n3lMgYLXTR2jZuVvzy2wMJdXPUjVTDoIl7PO+y4sb\nkj2Hxkrd8ifhAe41mKDTfNW4NJWMk2qU+Sumffh4aV5AeGbfSym0YL5OrGLnbb8W\nOHcuDoc1bPDhee887zZEFJ3NV+8fEAZRuhD4NnJjP8QFn8uwpkCU7wkM0sxiK9fj\n9HoodriquqFKYGBi1dN0reurP8xf3cjB15qjOGruDF9+13dFJhJDlT1RGOS29bac\nX1jbAnuvAgMBAAECggEAT4R646HUEALX0YhGbNZGI1LNYtr9Lr+H9IDKnrm11FaS\nZd4iLjI2PC2HEwbngVXh46uhQmDrfwhnTG0uOYO3NzNVQpmI6oZajsXzPGHOpokh\nVgLzzNpCsTjk6EnccoPh0yms/+SY+Cdr3mTClqiApjdAudFJatBEVHZqRxwrXyWq\nZYr3kNV0pFEus6O0I8JzR78pPgjMmOsfHWdxe/H96suIeqCxBGrqC0A32kiYb7Z6\nSOeYP4yjNez+67hQjtMgs0xf93jcij/Y2UFMcWzD0MHA9XqcG/QXyP4UiHiTChyq\nmFyZhKJ2PRAwK9KwQdbRlcy8scEVDqpPhde2p/BMsQKBgQDv1mdS+38LSUw1o0H+\nvwtfqdVNipRrjKd5F2+3kl2TOpMny6NT5JhWQ5KsxuKwaKfWcWKMMSq9obh4unjR\nPxLOsQaimTCBZLRX9ZB5sqWg4+uwDEYx3Qf5MjWKOCvgdAqjAd0+FJ96Tlwz5n/8\nPmIwaciF6DYj1nLUIGTFHsdLgwKBgQDdquhN3c9Z9M2YicOZhx3T2mipx+3TtoKy\niQ0xQrz+DROTMtb/g43gpzhbIzjYCkFRm/jBCYK17wFbuzcDL17ZncAXP2nbeY48\n+g9Pk6eKBPtIFjffadRDCjMI5MYmNNSrpWvOFrU6+mrOk47/QTWoJNwtVe7yQWm0\ng54QQpO7ZQKBgQCxbVjE3/8td00kxSEWd3jPjZGaKrIAGm7uuzLPiD0npQamQxUS\nBCPadWT14rBjNxkrIHh6JAltfk09Kx4kFlgwhm/VLCThJIHyLF10WoADVXnPpFTt\noIm8hbNsDIARLWeNDd0BhzovvfaiApyeG/yBulA5F/+tZYFPgqNp3IotRwKBgQCH\nFHwl31JZTi3vk5wntcf+bu0y8UvDpUe2BoCMkU/cPRm9rNCJuqA904krOKaOOImf\ncr2+3M3TkocwYEDg5wAU+uWxBQq8HTIJhJTJ+H+zQt/iCPAZbENWayO4erkpVS54\nPwEYAIyGGU32/sK4WAObqIKn+eL3q9b/kulCnV+rZQKBgHxwRtDPpNTBSWRy/Uin\nNolk1/XjxUZGUok1FO7puRjo9YxzP2kP4uWz/1vgJqbGSe12SVzl3nMy/z7PkBg8\nY+Qj0FibnXdvHc4JcsDO/1LWmTDfPrmBixyuo4K2m1vhgC1Hb4zM3FTlGle9iv/8\n4JA5/jxfw4uk8z6gxlehESoD\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-crashreporting-9paai@babygrowdiary.iam.gserviceaccount.com",
+  "client_id": "111035719436508881295",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-crashreporting-9paai%40babygrowdiary.iam.gserviceaccount.com"
+}
